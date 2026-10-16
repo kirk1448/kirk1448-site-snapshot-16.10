@@ -202,8 +202,8 @@ p {
 }
 
 .row img {
-  width: 100%;
-  border-radius: var(--radius-md);
+    width: 100%;
+    border-radius: var(--radius-md);
 }
 
 /* ---------- Footer ---------- */
@@ -263,7 +263,7 @@ p {
 
     p {
         font-size: 20px;
-        line-height: 32px; 
+        line-height: 32px;
     }
 
     .hero {
@@ -281,7 +281,7 @@ p {
 
     .hero-title-bottom {
         font-size: 96px;
-        line-height: 96.8px; 
+        line-height: 96.8px;
     }
 
     .card__title {
@@ -298,19 +298,42 @@ p {
     }
 }
 
+
+/* -------- MOBILE ---------- */
 @media (max-width: 600px) {
     :root {
         --page-padding-x: 20px;
         --page-padding-y: 24px;
+
+        --radius-lg: 20px;
+        --radius-md: 10px;
+
+        --header-height: 32px;
+    }
+
+    .content {
+        gap: 16px;
     }
 
     p {
         font-size: 16px;
-        line-height: 24px; 
+        line-height: 24px;
     }
+
+    /* ---------- Header ---------- */
 
     .site-header {
         padding: 10px 20px;
+    }
+
+    .site-nav {
+        height: 24px;
+        padding: 0 12px;
+        font-size: 16px;
+    }
+
+    .site-nav:hover {
+        transform: translateY(-1px);
     }
 
     .hero {
@@ -326,8 +349,8 @@ p {
     }
 
     .hero-title-bottom {
-        font-size: 80px;
-        line-height: 80px; 
+        font-size: 64px;
+        line-height: 70px;
     }
 
     .card {
@@ -342,5 +365,18 @@ p {
     .text {
         font-size: 18px;
         line-height: 1.4;
+    }
+
+    /* ----------- Footer --------------- */
+    .site-footer {
+        padding: 16px 0;
+    }
+
+    .site-footer__heading {
+        font-size: 16px;
+    }
+
+    .site-footer__copyright {
+        font-size: 12px;
     }
 }
