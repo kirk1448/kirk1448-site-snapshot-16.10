@@ -194,11 +194,10 @@ p {
 }
 
 .row {
-    align-self: stretch;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
-    gap: 32px;
-    align-items: flex;
+    /* grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr)); */
+    column-count: 2; 
+    column-gap: var(--page-padding-y) / 2;
+    align-items: start;
 }
 
 .row img {
