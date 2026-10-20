@@ -14,6 +14,7 @@
     --shadow-soft: 0 0 64px #442fff70;
     --shadow-soft-alt: 0 0 64px #18172123;
     --shadow-hover: 0 4px 16px #442fff77;
+    --shadow-hover-alt: 0 4px 16px #18172177;
 
     --header-height: 64px;
     --page-padding-x: 96px;
@@ -173,6 +174,7 @@ hr {
     margin: 8px 0;
     font-size: 64px;
     font-weight: 600;
+    border-radius: var(--radius-md);
 }
 
 .card__title--alt {
@@ -203,6 +205,15 @@ p {
 .row img {
     width: 100%;
     border-radius: var(--radius-md);
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    transition: all 0.2s ease;
+}
+
+.row img:hover {
+    transform: translateY(-1%);
+    box-shadow: var(--shadow-hover-alt);
 }
 
 /* ---------- Footer ---------- */
@@ -289,11 +300,11 @@ p {
     }
 
     .row {
-        flex-direction: column;
+        column-count: 1;
     }
 
     .row img {
-        height: auto !important;
+        height: auto;
     }
 }
 
@@ -307,7 +318,7 @@ p {
         --radius-lg: 20px;
         --radius-md: 10px;
 
-        --header-height: 32px;
+        --header-height: 48px;
     }
 
     .content {
@@ -326,7 +337,7 @@ p {
     }
 
     .site-nav {
-        height: 24px;
+        height: 32px;
         padding: 0 12px;
         font-size: 16px;
     }
@@ -353,7 +364,7 @@ p {
     }
 
     .card {
-        padding: 40px;
+        padding: 32px;
         gap: 20px;
     }
 
