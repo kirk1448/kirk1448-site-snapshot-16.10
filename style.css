@@ -218,6 +218,7 @@ p {
 
 /* ---------- Footer ---------- */
 .site-footer {
+    margin-top: 64px;
     align-self: stretch;
     padding: 48px 0;
     background: var(--color-accent);
@@ -226,6 +227,20 @@ p {
     align-items: center;
     gap: 10px;
     color: var(--color-dark);
+}
+
+.site-footer::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    background-image: url("./img/bg_tiles.webp");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 512px;
+    width: 100vw;
+    z-index: -5;
+    transform: translateY(-100%);
 }
 
 .site-footer__heading {
