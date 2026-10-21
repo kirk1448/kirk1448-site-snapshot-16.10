@@ -33,7 +33,7 @@
 
     to {
         opacity: 100%;
-        backdrop-filter: blur(0px) brightness(1);
+        filter: blur(0px) brightness(1);
     }
 }
 
@@ -105,6 +105,11 @@ hr {
 }
 
 /* ---------- Layout ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
 .page {
     position: absolute;
     top: var(--header-height);
@@ -112,6 +117,66 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+[id] {
+    scroll-margin-top: calc(var(--header-height) + 96px);
+}
+
+/* ------- Modal Image Viewer -----------*/
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-dark) 95%, transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    overflow: hidden;
+    user-select: none;
+
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        backdrop-filter 0.3s ease;
+}
+
+.lightbox.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.lightbox-img {
+    border-radius: var(--radius-md);
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: grab;
+    will-change: transform;
+    touch-action: none;
+}
+
+.lightbox-img.dragging {
+    cursor: grabbing;
+    transition: none;
+}
+
+.lightbox-hint {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: color-mix(in srgb, var(--color-white) 50%, transparent);
+    font-size: 13px;
+    background: color-mix(in srgb, var(--color-dark) 80%, transparent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 /* ---------- Hero ---------- */
@@ -197,7 +262,7 @@ p {
 
 .row {
     /* grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr)); */
-    column-count: 2; 
+    column-count: 2;
     column-gap: var(--page-padding-y) / 2;
     align-items: start;
 }
@@ -218,7 +283,7 @@ p {
 
 /* ---------- Footer ---------- */
 .site-footer {
-    margin-top: 64px;
+    margin-top: 10dvw;
     align-self: stretch;
     padding: 48px 0;
     background: var(--color-accent);
@@ -235,10 +300,10 @@ p {
     pointer-events: none;
     background-image: url("./img/bg_tiles.webp");
     background-position: bottom;
-    background-size: cover;
+    background-size: 150% 130%;
     background-repeat: no-repeat;
-    height: 512px;
-    width: 100vw;
+    height: 35dvw;
+    width: 100%;
     z-index: -5;
     transform: translateY(-100%);
 }
@@ -403,5 +468,39 @@ p {
 
     .site-footer__copyright {
         font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .site-footer::after {
+        background-image: url("./img/bg_tiles_static.png");
+    }
+
+    body {
+        animation: none;
+    }
+
+    p {
+        animation: none;
+    }
+
+    .site-nav {
+        transition: none;
+    }
+
+    .row img {
+        transition: none;
+    }
+
+    .social_link {
+        transition: none;
+    }
+
+    .lightbox {
+        transition: none;
     }
 }
